@@ -9,6 +9,9 @@ public class RestAPITest {
 	public void postJira()
 	{
 		System.out.println("postJira");
+		// added below two lines for github change.
+		System.out.println("postJira2");
+		System.out.println("postJira3");
 	}
 	@Test
 	public void deleteTwitter()
