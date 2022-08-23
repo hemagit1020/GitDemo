@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>qaclickacademy</groupId>
+  <artifactId>Mavenjava</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>Mavenjava</name>
+  <url>http://maven.apache.org</url>
+  <profiles>
+  <profile>
+  <id>Regression</id><!-- this profile tag is for testng2.xml which has regression tcs-->
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId><!--using maven surefire plugin, 
+          we can execute all the testcases -->
+          <version>3.0.0-M7</version>
+          <configuration> 
+          <suiteXmlFiles>
+            <suiteXmlFile>testng2.xml</suiteXmlFile>
+            <!--by adding this config testing,xml, maven will know that it should use this xml file only 
+            instead of running all the testcases -->
+          </suiteXmlFiles>
+        </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  
+  </profile>
+  
+  <profile>
+  <id>Smoke</id><!-- this profile tag is for testng.xml which has smoke tcs-->
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId><!--using maven surefire plugin, we can execute all the testcases -->
+          <version>3.0.0-M7</version>
+          <configuration> 
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile><!--by adding this config testing,xml, maven will know that it should this xml file only instead of running all the testcases -->
+          </suiteXmlFiles>
+        </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  
+  </profile>
+  
+  </profiles>
+
+
+  <properties> <!-- I have added this as i got compiler error " source 5 is no longer supported ue 6 o rlate"when i run maven compile.  -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+  
+ 
+  <dependencies>
+  <dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.3.0</version>
+</dependency>
+ <dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.4.0</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>rest-assured</artifactId>
+    <version>5.1.1</version>
+    <scope>test</scope>
+</dependency> 
+<dependency>
+    <groupId>io.appium</groupId>
+    <artifactId>java-client</artifactId>
+    <version>8.1.1</version>
+</dependency>
+
+  
+    
+  </dependencies>
+</project>
