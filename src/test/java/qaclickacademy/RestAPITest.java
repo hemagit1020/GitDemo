@@ -12,6 +12,8 @@ public class RestAPITest {
 		// added below two lines for github change.
 		System.out.println("postJira2");
 		System.out.println("postJira3");
+		//added below line for develop branch
+		System.out.println("postJira4");
 	}
 	@Test
 	public void deleteTwitter()
